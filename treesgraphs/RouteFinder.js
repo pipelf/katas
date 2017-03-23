@@ -1,7 +1,7 @@
 function RouteFinder() {};
 
+//Using Breath First Approach
 RouteFinder.prototype.find = function (first, end) {
-    //Using Breath First Approach
     console.log('finding route between ' + first.data +  ' and ' + end.data);
     var queue = [first],
         pred = {};
@@ -14,6 +14,7 @@ RouteFinder.prototype.find = function (first, end) {
         //visit
         for(var i = 0; i <= vertex.adjacents.length - 1; i++){
             var adj = vertex.adjacents[i];
+            
             if(!adj.visited)  {
                 adj.visited = true;
             
@@ -25,6 +26,7 @@ RouteFinder.prototype.find = function (first, end) {
                         vertex = pred[vertex.data];
                         path.push(vertex.data);
                     }
+                    
                     path.reverse();
                     
                     console.log(path.join(' ---> '));

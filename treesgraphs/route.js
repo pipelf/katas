@@ -9,7 +9,7 @@ var node5 = new GraphNode('node 5');
 var node6 = new GraphNode('node 6');
 
 node1.adjacents = [node2];
-node2.adjacents = [node3, node5];
+node2.adjacents = [node3, node5, node6];
 node3.adjacents = [node4, node1];
 node4.adjacents = [node5, node6];
 

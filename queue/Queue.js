@@ -1,3 +1,4 @@
+//Link list implementation
 var QueueNode = require('./Queue');
 
 function Queue() {
