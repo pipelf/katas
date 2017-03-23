@@ -6,6 +6,7 @@ function Graph(root, routeFinder) {
 };
 
 Graph.prototype.findRoute = function(a, b) {
+    this.resetNodes(a);
     return this.routeFinder.find(a, b);
 };
 
@@ -28,6 +29,20 @@ Graph.prototype.printGraph = function(starnode) {
     }
 };
 
+Graph.prototype.resetNodes = function(starnode) {
+     //Depth First Search approach
+    if(starnode === null) {
+        return;
+    }
+    
+    if(!starnode.visited) return;
+    
+    starnode.visited = false;
+
+    for(var ind in starnode.adjacents) {
+        this.resetNodes(starnode.adjacents[ind]);
+    }
+};
 
 
 module.exports = Graph;
