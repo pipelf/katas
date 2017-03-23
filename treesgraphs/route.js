@@ -15,8 +15,6 @@ node4.adjacents = [node5, node6];
 
 var myGraph = new Graph(node1);
 
-myGraph.findRoute(node3, node1);
-
 myGraph.findRoute(node1, node2);
 
 myGraph.findRoute(node1, node3);
@@ -26,3 +24,5 @@ myGraph.findRoute(node1, node4);
 myGraph.findRoute(node1, node5);
 
 myGraph.findRoute(node1, node6);
+
+myGraph.findRoute(node3, node1);
