@@ -1,4 +1,4 @@
-var RouteFinder = require('./RouteFinder'); 
+var RouteFinder = require('./RouteFinder');
 
 function Graph(root, routeFinder) {
     this.root = root;
@@ -11,16 +11,16 @@ Graph.prototype.findRoute = function(a, b) {
 };
 
 Graph.prototype.resetNodes = function(starnode) {
-     //Depth First Search approach
-    if(starnode === null) {
+    //Depth First Search approach
+    if (starnode === null) {
         return;
     }
-    
-    if(!starnode.visited) return;
-    
+
+    if (!starnode.visited) return;
+
     starnode.visited = false;
 
-    for(var ind in starnode.adjacents) {
+    for (var ind in starnode.adjacents) {
         this.resetNodes(starnode.adjacents[ind]);
     }
 };

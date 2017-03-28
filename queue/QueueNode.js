@@ -1,4 +1,4 @@
-function QueueNode(data){
+function QueueNode(data) {
     this.data = data;
     this.next = null;
 }
