@@ -1,15 +1,19 @@
+var Queue = require('../queue/Queue');
+
 function RouteFinder() {};
 
 //Using Breath First Approach
 RouteFinder.prototype.find = function(first, end) {
     console.log('finding route between ' + first.data + ' and ' + end.data);
-    var queue = [first],
-        pred = {};
+    var queue = new Queue();
+    var pred = {};
+        
+    queue.add(first);
 
     first.visited = true;
 
-    while (queue.length > 0) {
-        var vertex = queue.shift();
+    while (!queue.isEmpty()) {
+        var vertex = queue.remove();
 
         //visit
         for (var i = 0; i <= vertex.adjacents.length - 1; i++) {
@@ -34,7 +38,7 @@ RouteFinder.prototype.find = function(first, end) {
                 }
 
                 pred[adj.data] = vertex;
-                queue.push(adj);
+                queue.add(adj);
             }
         }
     }
