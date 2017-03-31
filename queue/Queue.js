@@ -15,14 +15,14 @@ Queue.prototype.add = function(data) {
         this.first = newnode;
         return;
     }
-    
-    if(this.first === this.last) {
+
+    if (this.first === this.last) {
         this.first.next = newnode;
     }
-    else{
+    else {
         this.last.next = newnode;
     }
-    
+
     this.last = newnode;
 
 };
@@ -34,15 +34,15 @@ Queue.prototype.remove = function() {
     }
 
     var toremove = this.first;
-    
-    if(this.first === this.last) {
+
+    if (this.first === this.last) {
         this.first = null;
         this.last = null;
     }
     else {
         this.first = this.first.next;
     }
-    
+
     return toremove.data;
 };
 
