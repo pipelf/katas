@@ -9,21 +9,21 @@ function IsPalindromePermutation(str) {
         hashstrings[str.charCodeAt(i)]++;
     }
 
-    var notamultoftwocount = 0;
+    var oddcount = 0;
     //Check if counts are multiples of 2 for all but one
     for (var i = 0; i < hashstrings.length; i++) {
-        if (notamultoftwocount > 1) {
+        if (oddcount > 1) {
             return false;
         }
 
         var istwomult = hashstrings[i] % 2 == 0;
 
         if (!istwomult) {
-            notamultoftwocount++;
+            oddcount++;
         }
     }
 
-    return notamultoftwocount == 0 || notamultoftwocount == 1;
+    return oddcount == 0 || oddcount == 1;
 }
 
 function createInitArray(size, initval) {
@@ -65,3 +65,18 @@ function TestIsPalindromePermutation_false_for_random() {
 }
 
 TestIsPalindromePermutation_false_for_random();
+
+
+function TestIsPalindromePermutation_true_for_sentence_noodd() {
+    var str = 'asddsa';
+    var result = IsPalindromePermutation(str);
+
+    if (result) {
+        console.log('PASS ' + str + ' is Palindrome permutation');
+    }
+    else {
+        console.log('FAIL ' + str + ' is Not Palindrome permutation');
+    }
+}
+
+TestIsPalindromePermutation_true_for_sentence_noodd();
