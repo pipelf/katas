@@ -2,12 +2,7 @@
 
 function IsPalindromePermutation(str) {
     var str = str.replace(' ', '').toLowerCase();
-    var hashstrings = new Array(128);
-
-    //initialize array
-    for (var j = 0; j < hashstrings.length; j++) {
-        hashstrings[j] = 0;
-    }
+    var hashstrings = createInitArray(128, 0);
 
     //Get count of each string
     for (var i = 0; i < str.length; i++) {
@@ -29,6 +24,17 @@ function IsPalindromePermutation(str) {
     }
 
     return notamultoftwocount == 0 || notamultoftwocount == 1;
+}
+
+function createInitArray(size, initval) {
+    var array = new Array(size);
+
+    //initialize array
+    for (var j = 0; j < array.length; j++) {
+        array[j] = initval;
+    }
+    
+    return array;
 }
 
 
