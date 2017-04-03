@@ -7,29 +7,29 @@ EditChecker.prototype.check = function(inputstr, outstr) {
         var outstack = outstr.split('');
         return this.checkedit(outstack, instack);
     }
-    
+
     //remove
-    if(outstr.length === (inputstr.length - 1)) {
+    if (outstr.length === (inputstr.length - 1)) {
         instack = inputstr.split('');
         outstack = outstr.split('');
         return this.checkedit(instack, outstack);
     }
-    
+
     //Replace
-    if(outstr.length === inputstr.length) {
+    if (outstr.length === inputstr.length) {
         instack = inputstr.split('');
         outstack = outstr.split('');
-        return this.checkedit(instack, outstack, true); 
+        return this.checkedit(instack, outstack, true);
     }
-    
+
     return false;
 };
 
 EditChecker.prototype.checkedit = function(instack, outstack, isreplace) {
-    var count = 0;
+    var diffcount = 0;
 
     while (outstack.length > 0) {
-        if (count > 1) return false;
+        if (diffcount > 1) return false;
 
         var peekin = instack[instack.length - 1];
         var peekout = outstack[outstack.length - 1];
@@ -40,15 +40,15 @@ EditChecker.prototype.checkedit = function(instack, outstack, isreplace) {
         }
         else {
             instack.pop();
-            if(isreplace) {
+            if (isreplace) {
                 outstack.pop();
             }
-            
-            count++;
+
+            diffcount++;
         }
     }
 
-    return count === 1;
+    return diffcount === 1;
 };
 
 
