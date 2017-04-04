@@ -10,7 +10,7 @@ testRunner.runTest('Test remove one Char', () => {
     var outstr = 'PAO';
     var result = checker.check(inputstr, outstr);
 
-    assert.equal(result, true, 'This is a remove')
+    assert.equal(result, true, 'This is a remove');
 });
 
 testRunner.runTest('Test insert one Char', () => {
@@ -18,7 +18,7 @@ testRunner.runTest('Test insert one Char', () => {
     var outstr = 'PSATO';
     var result = checker.check(inputstr, outstr);
 
-    assert.equal(result, true, 'This is an insert')
+    assert.equal(result, true, 'This is an insert');
 });
 
 testRunner.runTest('Test replace one Char', () => {
@@ -26,5 +26,13 @@ testRunner.runTest('Test replace one Char', () => {
     var outstr = 'PETO';
     var result = checker.check(inputstr, outstr);
 
-    assert.equal(result, true, 'This is a replace')
+    assert.equal(result, true, 'This is a replace');
+});
+
+testRunner.runTest('Test not one edit', () => {
+    var inputstr = 'pale';
+    var outstr = 'bake';
+    var result = checker.check(inputstr, outstr);
+
+    assert.equal(result, false, 'This is not an edit');
 });
