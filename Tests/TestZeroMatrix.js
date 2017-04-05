@@ -13,7 +13,7 @@ testRunner.runTest('Zeros Row and Coloum', () => {
         [9, 2, 1]
     ];
 
-    var rotated = zeromatrix.zero(matrix);
+    var zerod = zeromatrix.zero(matrix);
 
     var expected = [
         [1, 0, 3],
@@ -22,5 +22,5 @@ testRunner.runTest('Zeros Row and Coloum', () => {
         [9, 0, 1]
     ];
 
-    assert.deepEqual(rotated, expected);
+    assert.deepEqual(zerod, expected);
 });
