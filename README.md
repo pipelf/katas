@@ -1,3 +1,3 @@
 # Katas
 
-This a repo to practice code challenges.
+This is a repo to practice code challenges.
