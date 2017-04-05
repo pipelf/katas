@@ -1,6 +1,7 @@
 'use strict'
 
 class ImageRotator {
+    
     rotate90(image) {
         var n = image.length;
         var outimg = new Array(n);
