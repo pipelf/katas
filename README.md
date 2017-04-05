@@ -1,1 +1,2 @@
-Hello this is test to upload a doc.
+#Katas
+This a repo to practice code challenges.
