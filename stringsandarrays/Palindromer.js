@@ -44,22 +44,13 @@ class Palindromer {
         var countoflargest = 0;
 
         for (var p = 0; p < input.length; p++) {
-            var start,
-                end,
-                odd = false;
-
-            if (input.charAt(p) === input.charAt(p + 1)) {
-                start = p;
-                end = p + 1;
-            }
-            else if ((p - 1) >= 0 && input.charAt(p - 1) === input.charAt(p + 1)) {
-                start = p - 1;
-                end = p + 1;
-                odd = true;
-            }
-            else {
-                continue;
-            }
+            var pointers = this.setpointers(p, input);
+            
+            if(pointers === null) continue;
+            
+            var start = pointers.start,
+                end = pointers.end,
+                odd = pointers.odd;
 
             var currenthalfcount = 0;
 
@@ -78,6 +69,30 @@ class Palindromer {
         }
 
         return countoflargest;
+    }
+
+    //Determine where to start the search pointers for each char
+    setpointers(p, input) {
+        var start,
+            end,
+            odd = false;
+                
+        //case: asddsa
+        if (input.charAt(p) === input.charAt(p + 1)) {
+            start = p;
+            end = p + 1;
+        }
+        //case: asdxdsa
+        else if ((p - 1) >= 0 && input.charAt(p - 1) === input.charAt(p + 1)) {
+            start = p - 1;
+            end = p + 1;
+            odd = true;
+        }
+        else {
+           return null;
+        }
+        
+        return { start, end, odd };
     }
 
 }
